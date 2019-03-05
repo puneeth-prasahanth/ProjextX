@@ -1,0 +1,40 @@
+{% extends 'home.html'%}
+
+
+    {% block login  %}
+        Welcome to ProjectX <a href="/logout">Logout</a>
+        {%  endblock %}
+<div class="container-fluid">
+
+    <div class="parallax">
+    <div class="row">
+    {% block body %}
+        <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+            <div style="text-align:center;font-family:italic;">
+                <h1> Welcome ProjectX </h1>
+            <h1>Enter Following Location Detailes. </h1>
+                <form action="/api/v1/delete">
+                    Location:<input type="text" name="location"  />
+                    Department:<input type="text" name="department"  />
+                    Category:<input type="text" name="category"  />
+                    Subcategory:<input type="text" name="subcategory"  />
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <input type="submit" value="Delete" />
+                </form>
+                {% if error %}
+                    <p>{{error}}</p>
+                {%endif%}
+
+                {% if message %}
+                <br>
+                <p>{{message}}</p>
+                {%endif%}
+
+
+          </div>
+        </div>
+    {%  endblock %}
+     </div>
+    </div>
+</div>
+

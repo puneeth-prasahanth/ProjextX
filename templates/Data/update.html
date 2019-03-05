@@ -1,0 +1,46 @@
+{% extends 'home.html'%}
+
+
+    {% block login  %}
+        Welcome to ProjectX <a href="/logout">Logout</a>
+        {%  endblock %}
+<div class="container-fluid">
+
+    <div class="parallax">
+    <div class="row">
+
+    {% block body %}
+        <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+            <div style="text-align:center;font-family:italic;">
+                <h1> Welcome ProjectX </h1>
+
+            <h1>Enter Following LDCS Detailes Which you want to update. </h1>
+                <form action="/api/v1/update">
+                    Location:<input type="text" name="location"  />
+                    Department:<input type="text" name="department"  />
+                    Category:<input type="text" name="category"  />
+                    <br>
+                    Subcategory:<input type="text" name="subcategory"  />
+                    <p>Enter the sequence number which you want to edit</p>
+                    Seq_no:<input type="text" name="seq_no"  />
+                    <p>Note: to know seq_no you can do any LDCS read </p>
+                    <input type="submit" value="Delete" />
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                </form>
+                {% if error %}
+                    <p>{{error}}</p>
+                {%endif%}
+
+                {% if message %}
+                <br>
+                <p>{{message}}</p>
+                {%endif%}
+
+
+          </div>
+        </div>
+    {%  endblock %}
+     </div>
+    </div>
+</div>
+

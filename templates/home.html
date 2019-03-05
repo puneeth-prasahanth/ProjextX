@@ -1,0 +1,52 @@
+<html>
+<link rel="stylesheet" media="screen" href = "{{ url_for('static', filename='bootstrap.min.css') }}">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
+<script src="script.js"></script>
+<head>
+</head>
+
+
+<body class = "body">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="position:sticky;">
+    <div class="w3-container top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ProjectX</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="hvr-curl-top-right"><a href=".">Home</a></li>
+                <li class="hvr-curl-top-right"><a href="#about">About</a></li>
+                <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="navbar-form pull-right">
+            {% block login%}
+                        Welcome to ProjectX <a href="/login">Log In</a> or <a href="/register">Sign Up</a>
+            {% endblock %}
+
+            </div>
+        </div>
+      </div>
+    </nav>
+
+   <div class="container-fluid">
+    <div class="parallax">
+    <div class="row">
+    {% block body %}
+        <p style="text-align:center;font-family:italic;font-weight:bold;font-size:160%;"> Welcome, Please Click on Login or Sign up to join</p>
+        {%  endblock %}
+     </div>
+    </div>
+</div>
+

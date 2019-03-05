@@ -1,0 +1,55 @@
+{% extends 'home.html'%}
+
+
+    {% block login  %}
+        Welcome to ProjectX <a href="/logout">Logout</a>
+        {%  endblock %}
+<div class="container-fluid">
+
+    <div class="parallax">
+    <div class="row">
+    {% block body %}
+        <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+            <div style="text-align:center;font-family:italic;">
+                <h1> Welcome ProjectX </h1>
+
+            <h1>Enter Following Location Detailes. </h1>
+                <form method="GET">
+
+                    Location:<input type="text" name="location"  />
+                    Department:<input type="text" name="department"  />
+                    Category:<input type="text" name="category"  />
+                    <input type="submit" value="Submit request" />
+                </form>
+                {% if error %}
+                    <p>{{error}}</p>
+                {%endif%}
+
+                {% if location_department_categorys %}
+                <br>
+                <table border = 1>
+                    <tr>
+                        <th> Sequence_no </th>
+                        <th> List of Locations </th>
+                        <th> List of Departments  </th>
+                        <th> List of Categorys </th>
+                    </tr>
+                {% for key, value in location_department_categorys.items() %}
+                    <tr>
+                         <td> {{ value[0]}} </td>
+                         <td> {{ value[1]}} </td>
+                        <td> {{ value[2]}} </td>
+                        <td> {{ value[3]}} </td>
+                    </tr>
+                {% endfor %}
+                 </table>
+               {%endif%}
+
+
+          </div>
+        </div>
+    {%  endblock %}
+     </div>
+    </div>
+</div>
+

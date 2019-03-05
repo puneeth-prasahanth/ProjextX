@@ -1,0 +1,43 @@
+{% extends 'home.html'%}
+
+
+    {% block login  %}
+        Welcome to ProjectX <a href="/logout">Logout</a>
+        {%  endblock %}
+<div class="container-fluid">
+
+    <div class="parallax">
+    <div class="row">
+    {% block body %}
+        <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+            <div style="text-align:center;font-family:italic;">
+                <h1> Welcome ProjectX </h1>
+
+            <h1>Enter Following Location Detailes. </h1>
+            <form  method="GET">
+            Location:<input type="text" name="location">
+                <input type="submit" value="Search">
+            </form>
+                <p>{{error}}</p>
+                {% if locations %}
+                <br>
+                <table border = 1>
+
+                    <tr>
+                        <th> List of Locations </th>
+                    </tr>
+                {% for key, value in locations.items() %}
+                    <tr>
+                        <td> {{ value[0] }} </td>
+                    </tr>
+                {% endfor %}
+                 </table>
+               {%endif%}
+
+          </div>
+        </div>
+    {%  endblock %}
+     </div>
+    </div>
+</div>
+

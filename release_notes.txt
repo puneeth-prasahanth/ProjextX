@@ -1,0 +1,41 @@
+Release Notes;
+##############
+
+step 1: create a "virtualenv" in the deserved folder. 
+
+step 2: Deploy the complete code into the deserved folder.
+
+step 3: run the pip install -r requirements.txt
+
+step 4: run "creata_insert_table.py" python code, this will create all the DB related operations 
+		
+		cmd:python creata_insert_table.py
+	
+	Note: change the DB connections changes.
+	Usage in the project is Postgres
+	
+
+step 5:	run the "app_flask_session.py" python code.
+		
+		cmd:python app_flask_session.py
+
+		This command will start the Flask API.
+		
+step 6: Open the following url in any browser
+		
+			"http://127.0.0.1:5000/" 	
+			
+		
+Note: Kindly change the DB configurations in config.py file.  			
+			
+step 7:			
+Unit Testing:
+		I have Developed a test.py script which will perform the basic unit testing activity, by rendering templates 
+		and cross verifying the return out put .
+		
+		run the below command to Perform the Unit testing.
+
+		7.1) python test.py 
+			
+		7.2) press (Ctrl+c) after 15 to 20 seconds.	
+				
