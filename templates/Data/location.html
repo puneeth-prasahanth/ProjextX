@@ -1,6 +1,7 @@
 {% extends 'home.html'%}
-
-
+{% block style%}
+<link href="../../../static/css/style.css" rel="stylesheet" type="text/css">
+{%  endblock %}
     {% block login  %}
         Welcome to ProjectX <a href="/logout">Logout</a>
         {%  endblock %}
