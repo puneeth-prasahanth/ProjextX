@@ -19,7 +19,13 @@
             Location:<input type="text" name="location">
                 <input type="submit" value="Search">
             </form>
-                <p>{{error}}</p>
+                <p style="color:red">{{error}}</p>
+                 {% if inval_message %}
+                    <p style="color:orange">{{inval_message}}</p>
+                {% elif error %}
+                <br>
+                    <p style="color:red">{{error}}</p>
+                {%endif%}
                 {% if locations %}
                 <br>
                 <table border = 1>
@@ -29,7 +35,7 @@
                     </tr>
                 {% for key, value in locations.items() %}
                     <tr>
-                        <td> {{ value[0] }} </td>
+                        <td> {{ value[1] }} </td>
                     </tr>
                 {% endfor %}
                  </table>

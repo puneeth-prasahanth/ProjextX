@@ -4,6 +4,8 @@
 
 import psycopg2
 import re
+
+# These are the which need to be updated by RM team.
 connection = psycopg2.connect(user = "postgres",
                                   password = "Puneeth@1",
                                   host = "localhost",
@@ -17,7 +19,7 @@ try:
     cursor.execute("SELECT version();")
     record = cursor.fetchone()
     print("You are connected to - ", record,"\n")
-    Table_statment="CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username varchar(255),password varchar(255))"
+    Table_statment="CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username varchar(255) unique,password varchar(255))"
     try :
         cursor.execute(Table_statment)
         connection.commit()
@@ -25,7 +27,7 @@ try:
     except:
         print (f'Error while creating the users')
 
-    Table_statment2="CREATE TABLE public.ldcs (seq_no serial NOT NULL, location_disc varchar(355) NOT NULL,	department varchar(355) NOT NULL,	category varchar(355) NOT NULL,	subcategory varchar(355) NOT NULL,	CONSTRAINT ldcs_pkey PRIMARY KEY (seq_no));"
+    Table_statment2="CREATE TABLE IF NOT EXISTS public.ldcs (seq_no serial NOT NULL, location_disc varchar(355) NOT NULL,	department varchar(355) NOT NULL,	category varchar(355) NOT NULL,	subcategory varchar(355) NOT NULL,	CONSTRAINT ldcs_pkey PRIMARY KEY (seq_no));"
     try:
         cursor.execute(Table_statment2)
         connection.commit()
@@ -33,7 +35,7 @@ try:
     except:
         print (f'Error while creating the ldcs')
 
-    Table_statment3="CREATE TABLE public.sku_ldcs (sku_seq_no serial NOT NULL,sku_name varchar(355) NOT NULL, location_disc varchar(355) NOT NULL,	department varchar(355) NOT NULL,	category varchar(355) NOT NULL,	subcategory varchar(355) NOT NULL,	CONSTRAINT sku_ldcs_pkey PRIMARY KEY (sku_seq_no));"
+    Table_statment3="CREATE TABLE IF NOT EXISTS public.sku_ldcs (sku_seq_no serial NOT NULL,sku_name varchar(355) NOT NULL, location_disc varchar(355) NOT NULL,	department varchar(355) NOT NULL,	category varchar(355) NOT NULL,	subcategory varchar(355) NOT NULL,	CONSTRAINT sku_ldcs_pkey PRIMARY KEY (sku_seq_no));"
     try:
         cursor.execute(Table_statment3)
         connection.commit()

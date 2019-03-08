@@ -22,8 +22,11 @@
                     Department:<input type="text" name="department"  />
                     <input type="submit" value="Submit request" />
                 </form>
-                {% if error %}
-                    <p>{{error}}</p>
+                 {% if inval_message %}
+                    <p style="color:orange">{{inval_message}}</p>
+                {% elif error %}
+                <br>
+                    <p style="color:red">{{error}}</p>
                 {%endif%}
 
                 {% if location_departments %}

@@ -30,7 +30,7 @@
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                 </form>
                 {% if error %}
-                    <p>{{error}}</p>
+                   <p style="color:red">{{error}}</p>
                 {%endif%}
 
                 {% if message %}

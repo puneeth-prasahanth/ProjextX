@@ -24,8 +24,11 @@
                     Subcategory:<input type="text" name="subcategory"  />
                     <input type="submit" value="Search" />
                 </form>
-                {% if error %}
-                    <p>{{error}}</p>
+                {% if inval_message %}
+                    <p style="color:orange">{{inval_message}}</p>
+                {% elif error %}
+                <br>
+                    <p style="color:red">{{error}}</p>
                 {%endif%}
 
                 {% if location_department_category_subcategorys %}

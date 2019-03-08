@@ -23,13 +23,14 @@
                     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                     <input type="submit" value="Delete" />
                 </form>
-                {% if error %}
-                    <p>{{error}}</p>
-                {%endif%}
-
-                {% if message %}
+                {% if inval_message %}
+                    <p style="color:orange">{{inval_message}}</p>
+                {% elif error %}
                 <br>
-                <p>{{message}}</p>
+                    <p style="color:red">{{error}}</p>
+                {% elif message %}
+                <br>
+                <p style="color:green" >{{message}}</p>
                 {%endif%}
 
 

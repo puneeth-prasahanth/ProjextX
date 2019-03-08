@@ -1,13 +1,42 @@
 Release Notes;
 ##############
 
-step 1: create a "virtualenv" in the deserved folder. 
+step 1: create a "virtualenv" in the deserved folder.
+		
+		steps to install and create a virtual environment.
+		
+		1.1) pip install virtualenv
+		
+		1.2)Check the virtual env version
+
+			virtualenv --version
+		
+		1.3)To create virtual environment, go to the deserved dir where you 
+			want to create the virtual env and run the below.
+			
+			virtualenv <name of the env> 
+			
+		1.4To start your virtual environment follow the below steps.
+			
+			For Windows:
+			<name of the env>\Scripts\activate
+			
+			For Unix:
+			source <name of the env>/bin/activate
+
+			
+
+virtualenv <name of the env> 
+			
 
 step 2: Deploy the complete code into the deserved folder.
 
 step 3: run the pip install -r requirements.txt
 
+
 step 4: run "creata_insert_table.py" python code, this will create all the DB related operations 
+		
+		4.1)before executing  this please change the user , password , host , database  details of your DB
 		
 		cmd:python creata_insert_table.py
 	
@@ -15,18 +44,20 @@ step 4: run "creata_insert_table.py" python code, this will create all the DB re
 	Usage in the project is Postgres
 	
 
-step 5:	run the "app_flask_session.py" python code.
+step 5:	Run the "app_flask_session.py" python code, from the directory where you have deployed the code from GIT .
 		
 		cmd:python app_flask_session.py
 
 		This command will start the Flask API.
 		
+
+		
+Note: Kindly change the DB configurations in config.py file.  					
+		
 step 6: Open the following url in any browser
 		
 			"http://127.0.0.1:5000/" 	
-			
-		
-Note: Kindly change the DB configurations in config.py file.  			
+					
 			
 step 7:			
 Unit Testing:
