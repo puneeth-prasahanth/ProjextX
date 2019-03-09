@@ -10,6 +10,15 @@ connection = psycopg2.connect(user = "postgres",
                                   password = "Puneeth@1",
                                   host = "localhost",
                                   database = "projectx")
+try:
+    cursor = connection.cursor()
+    cursor.execute("CREATE EXTENSION IF NOT exists pgcrypto;")
+    cursor.close()
+except Exception as e:
+    print(f'Error in Executing {e}')
+    cursor.close()
+
+
 
 try:
     cursor = connection.cursor()
@@ -19,7 +28,7 @@ try:
     cursor.execute("SELECT version();")
     record = cursor.fetchone()
     print("You are connected to - ", record,"\n")
-    Table_statment="CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username varchar(255) unique,password varchar(255))"
+    Table_statment="CREATE TABLE IF NOT EXISTS users (id serial PRIMARY KEY, username varchar(255) unique,password varchar(255))"
     try :
         cursor.execute(Table_statment)
         connection.commit()
